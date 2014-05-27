@@ -6,7 +6,7 @@ app_eqc: ERLC_OPTS += -DEQC_TESTING
 app_eqc: app
 
 eqc_ci: deps app_eqc
-	erlc -o ebin -Iinclude -pa deps/folsom/ebin eqc_test/*.erl
+	erlc -o ebin -Iinclude -pa deps/folsom/ebin +"{parse_transform,eqc_cover}" eqc_test/*.erl
 
 # Options.
 CT_SUITES = fuse
