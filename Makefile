@@ -5,12 +5,8 @@ PROJECT = fuse
 app_eqc: ERLC_OPTS += -DEQC_TESTING
 app_eqc: app
 
-eqc_ci: folsom app_eqc
+eqc_ci: deps app_eqc
 	erlc -o ebin -Iinclude -pa deps/folsom/ebin eqc_test/*.erl
-
-folsom: 
-	rebar get-deps
-	cd deps/folsom && erlc -o ebin -Iinclude src/*.erl
 
 # Options.
 CT_SUITES = fuse
