@@ -1,4 +1,5 @@
 {build, "make eqc_ci"}.
-{test_dirs, "ebin"}.
+{test_root, "ebin"}.
+{test_path, "ebin"}.
 {cover_tool, eqc_cover}.
-{include, "../deps/folsom/ebin"}.
+{deps, "deps/folsom/ebin"}.
