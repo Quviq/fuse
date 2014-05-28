@@ -152,7 +152,7 @@ prop_component_correct() ->
 	?SETUP(fun() ->
 		ets:new(?TAB, [named_table, public]),
 		eqc_mocking:start_mocking(api_spec()),
-		fun() -> ets:delete(?TAB), ok end
+		fun() -> ets:delete(?TAB), eqc_mocking:stop_mocking() end
 	end,
 	?FORALL(Cmds, commands(?MODULE),
         ?TRAPEXIT(
